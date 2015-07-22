@@ -596,7 +596,7 @@ function reset_board()
     local ix = luci.util.exec("LANG=en ifconfig wlan0 | grep HWaddr")
     local macaddr = string.gsub(ix:match("HWaddr ([^%s]+)"), ":", "")
 
-    luci.template.render("arduino/board_reset", { name = "Arduino Yun-" .. macaddr })
+    luci.template.render("arduino/board_reset", { name = "DAB" .. macaddr })
 
     luci.util.exec("blink-start 50")
     luci.util.exec("run-sysupgrade " .. update_file)
